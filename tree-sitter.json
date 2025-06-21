@@ -1,0 +1,41 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "kurai",
+      "camelcase": "Kurai",
+      "title": "Kurai",
+      "scope": "source.kurai",
+      "file-types": ["kurai", ".kurai"],
+      "path": ".",
+      "injection-regex": "^kurai$",
+      "class-name": "TreeSitterKurai"
+    }
+  ],
+  "metadata": {
+    "version": "0.3.0",
+    "license": "MIT",
+    "description": "Just code in this easy ahh language named Kurai",
+    "authors": [
+      {
+        "name": "Zairy Putra",
+        "email": "zairysbigtae@gmail.com",
+        "url": "https://github.com/zairysbigtae"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/zairysbigtae/Kurai",
+      "funding": "https://ko-fi.com/zairysbigtae"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
+
