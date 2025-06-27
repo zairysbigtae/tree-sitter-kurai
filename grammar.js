@@ -7,6 +7,14 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+function commaSep(rule) {
+  return optional(sepBy(",", rule));
+}
+
+function sepBy(sep, rule) {
+  return seq(rule, repeat(seq(sep, rule)));
+}
+
 module.exports = grammar({
   name: "kurai",
 
@@ -23,6 +31,15 @@ module.exports = grammar({
         $.while_loop,
         $.function_call,
         $.import,
+        $.attribute,
+      ),
+
+    attribute: ($) => seq("#", "[", $.attribute_item, "]"),
+
+    attribute_item: ($) =>
+      seq(
+        field("name", $.identifier),
+        optional(seq("(", field("args", commaSep($.identifier)), ")")),
       ),
 
     let_statement: ($) =>
